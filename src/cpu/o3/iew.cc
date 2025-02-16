@@ -870,6 +870,11 @@ IEW::dispatchInsts(ThreadID tid)
                 "IQ.\n",
                 tid, inst->pcState(), inst->seqNum, inst->threadNumber);
 
+        if (inst->isMagic()) {
+            printf("Magic Inst Dispatched at tick: %lu, PC: %#lx\n",
+                curTick(), inst->pcState().instAddr());
+        }
+
         // Be sure to mark these instructions as ready so that the
         // commit stage can go ahead and execute them, and mark
         // them as issued so the IQ doesn't reprocess them.
@@ -1123,6 +1128,12 @@ IEW::executeInsts()
 
         DPRINTF(IEW, "Execute: Processing PC %s, [tid:%i] [sn:%llu].\n",
                 inst->pcState(), inst->threadNumber,inst->seqNum);
+
+        if (inst->isMagic())
+        {
+            printf("Magic Inst Executed at tick: %lu, PC: %#lx\n",
+                   curTick(), inst->pcState().instAddr());
+        }
 
         // Notify potential listeners that this instruction has started
         // executing

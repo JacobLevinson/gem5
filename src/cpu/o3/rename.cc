@@ -656,7 +656,11 @@ Rename::renameInsts(ThreadID tid)
                 "[tid:%i] "
                 "Processing instruction [sn:%llu] with PC %s.\n",
                 tid, inst->seqNum, inst->pcState());
-
+        if (inst->isMagic())
+        {
+            printf("Magic Inst Renamed at tick: %lu, PC: %#lx\n",
+                   curTick(), inst->pcState().instAddr());
+        }
         // Check here to make sure there are enough destination registers
         // to rename to.  Otherwise block.
         if (!renameMap[tid]->canRename(inst)) {

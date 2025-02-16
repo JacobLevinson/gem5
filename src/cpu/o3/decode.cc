@@ -655,6 +655,12 @@ Decode::decodeInsts(ThreadID tid)
 
         DPRINTF(Decode, "[tid:%i] Processing instruction [sn:%lli] with "
                 "PC %s\n", tid, inst->seqNum, inst->pcState());
+                
+        if (inst->isMagic())
+        {
+            printf("Magic Inst Decoded at tick: %lu, PC: %#lx\n",
+                   curTick(), inst->pcState().instAddr());
+        }
 
         if (inst->isSquashed()) {
             DPRINTF(Decode, "[tid:%i] Instruction %i with PC %s is "

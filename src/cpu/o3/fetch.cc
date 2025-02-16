@@ -1250,6 +1250,12 @@ Fetch::fetch(bool &status_change)
             DynInstPtr instruction = buildInst(
                     tid, staticInst, curMacroop, this_pc, *next_pc, true);
 
+            if (instruction->isMagic())
+            {
+                printf("Magic Inst Fetched at tick: %lu, PC: %#lx\n",
+                       curTick(), instruction->pcState().instAddr());
+            }
+
             ppFetch->notify(instruction);
             numInst++;
 
