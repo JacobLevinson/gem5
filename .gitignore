@@ -38,3 +38,4 @@ typings
 .DS_Store
 gem5_results/
 core
+.vscode/settings.json

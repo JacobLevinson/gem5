@@ -198,6 +198,20 @@ def addNoISAOptions(parser):
     parser.add_argument("--l3_assoc", type=int, default=16)
     parser.add_argument("--cacheline_size", type=int, default=64)
 
+    # Cache Replacement Policy Options
+    parser.add_argument(
+        "--l1d_repl", type=str, default="LRURP",
+        choices=ObjectList.repl_list.get_names(),
+        help="Replacement policy for L1 data cache (e.g., LRURP, NMRURP, RandomRP)"
+    )
+
+    parser.add_argument(
+        "--l2_repl", type=str, default="LRURP",
+        choices=ObjectList.repl_list.get_names(),
+        help="Replacement policy for L2 cache (e.g., LRURP, NMRURP, RandomRP)"
+    )
+
+
     # Enable Ruby
     parser.add_argument("--ruby", action="store_true")
 
