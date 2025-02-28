@@ -54,11 +54,11 @@ class NRU : public Base
     struct NRUReplData : ReplacementData
     {
 
-        /** Flag to indicate if the cache entry is valid or not. */
-        bool valid;
-
         /** Flag to indicate if the cache entry was not recently used. */
         bool nru;
+
+        /** Flag to indicate if the cache entry is valid or not. */
+        bool valid;
 
         /**
          * Default constructor. Invalidate data.
