@@ -180,3 +180,8 @@ class NMRURP(BaseReplacementPolicy):
     type = 'NMRURP'
     cxx_class = 'gem5::replacement_policy::NMRU'
     cxx_header = "mem/cache/replacement_policies/nmru_rp.hh"
+
+class NRURP(BaseReplacementPolicy):
+    type = 'NRURP'
+    cxx_class = 'gem5::replacement_policy::NRU'
+    cxx_header = "mem/cache/replacement_policies/nru_rp.hh"

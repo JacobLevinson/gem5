@@ -202,13 +202,13 @@ def addNoISAOptions(parser):
     parser.add_argument(
         "--l1d_repl", type=str, default="LRURP",
         choices=ObjectList.repl_list.get_names(),
-        help="Replacement policy for L1 data cache (e.g., LRURP, NMRURP, RandomRP)"
+        help="Replacement policy for L1 data cache (e.g., LRURP, NMRURP, NRU, RandomRP)"
     )
 
     parser.add_argument(
         "--l2_repl", type=str, default="LRURP",
         choices=ObjectList.repl_list.get_names(),
-        help="Replacement policy for L2 cache (e.g., LRURP, NMRURP, RandomRP)"
+        help="Replacement policy for L2 cache (e.g., LRURP, NMRURP, NRU, RandomRP)"
     )
 
 
